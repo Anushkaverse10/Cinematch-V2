@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search and discover movies and series on Cinematch. Filter by language, genre, OTT platform, year, and rating.">
+  <title>Discover — Cinematch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Override movie-card width inside grid on search page */
+    #search-results .movie-card { width: auto; }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">Cine<span>match</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="search.html" class="active">Discover</a></li>
+    <li><a href="favorites.html">Favorites</a></li>
+  </ul>
+  <div class="nav-search">
+    <span class="nav-search-icon">🔍</span>
+    <input type="text" id="nav-search-input" placeholder="Search movies…" autocomplete="off">
+  </div>
+  <button class="nav-fav-btn" onclick="window.location.href='favorites.html'">♥ Favorites</button>
+</nav>
+
+<!-- ── Search Page ─────────────────────────────────────── -->
+<div class="search-page">
+
+  <div class="search-header">
+    <h1>Discover Movies</h1>
+    <div class="search-bar-wrap">
+      <span class="search-bar-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Search movies, actors, directors…" autocomplete="off">
+    </div>
+  </div>
+
+  <div class="search-layout">
+
+    <!-- ── Filters ── -->
+    <aside class="filter-panel">
+      <h3>Filters</h3>
+
+      <div class="filter-group">
+        <label for="filter-language">Language</label>
+        <select id="filter-language">
+          <option value="">All Languages</option>
+          <!-- Populated by JS -->
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-genre">Genre</label>
+        <select id="filter-genre">
+          <option value="">All Genres</option>
+          <!-- Populated by JS -->
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-year">Release Year</label>
+        <select id="filter-year">
+          <option value="">Any Year</option>
+          <!-- Populated by JS -->
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-sort">Sort By</label>
+        <select id="filter-sort">
+          <option value="popularity.desc">Most Popular</option>
+          <option value="vote_average.desc">Highest Rated</option>
+          <option value="release_date.desc">Newest First</option>
+          <option value="release_date.asc">Oldest First</option>
+          <option value="revenue.desc">Box Office</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filter-rating">Min Rating: <span id="filter-rating-val" class="text-accent">0+</span></label>
+        <input type="range" id="filter-rating" min="0" max="9" step="0.5" value="0">
+      </div>
+
+      <button class="filter-reset" id="filter-reset">↺ Reset Filters</button>
+    </aside>
+
+    <!-- ── Results ── -->
+    <div>
+      <p class="results-count" id="results-count"></p>
+      <div class="movies-grid" id="search-results">
+        <!-- Skeleton -->
+        <div class="skeleton-card"><div class="skeleton skeleton-card-poster"></div><div class="skeleton skeleton-card-line" style="margin-top:8px"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-card-poster"></div><div class="skeleton skeleton-card-line" style="margin-top:8px"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-card-poster"></div><div class="skeleton skeleton-card-line" style="margin-top:8px"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-card-poster"></div><div class="skeleton skeleton-card-line" style="margin-top:8px"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-card-poster"></div><div class="skeleton skeleton-card-line" style="margin-top:8px"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-card-poster"></div><div class="skeleton skeleton-card-line" style="margin-top:8px"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-card-poster"></div><div class="skeleton skeleton-card-line" style="margin-top:8px"></div></div>
+        <div class="skeleton-card"><div class="skeleton skeleton-card-poster"></div><div class="skeleton skeleton-card-line" style="margin-top:8px"></div></div>
+      </div>
+      <div class="load-more-wrap">
+        <button class="btn-load-more" id="load-more-btn" style="display:none">Load More</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-logo">Cine<span>match</span></div>
+  <p>Movie data from <a href="https://www.themoviedb.org" target="_blank" rel="noopener" style="color:var(--accent)">TMDB</a>.</p>
+</footer>
+
+<script type="module" src="js/search.js"></script>
+</body>
+</html>
