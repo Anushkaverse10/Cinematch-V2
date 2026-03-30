@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Movie detail — Cinematch. Cast, trailer, OTT availability and more.">
+  <title>Movie Detail — Cinematch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Page-specific overrides */
+    .detail-fav-btn.active { background: var(--accent-red); color: #fff; border-color: var(--accent-red); }
+    .detail-fav-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-surface); color: var(--text-primary);
+      border: 1px solid var(--glass-border);
+      padding: 13px 24px; border-radius: var(--radius-pill);
+      font-size: 0.95rem; font-weight: 600; cursor: pointer;
+      transition: all var(--tr-smooth);
+    }
+    .detail-fav-btn:hover { border-color: var(--accent-red); color: var(--accent-red); }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">Cine<span>match</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="search.html">Discover</a></li>
+    <li><a href="favorites.html">Favorites</a></li>
+  </ul>
+  <div class="nav-search">
+    <span class="nav-search-icon">🔍</span>
+    <input type="text" id="nav-search-input" placeholder="Search movies…" autocomplete="off">
+  </div>
+  <button class="nav-fav-btn" onclick="window.location.href='favorites.html'">♥ Favorites</button>
+</nav>
+
+<!-- ── Backdrop ────────────────────────────────────────── -->
+<div class="detail-backdrop-wrap">
+  <img id="detail-backdrop-img" class="detail-backdrop-img" src="" alt="">
+  <div class="detail-backdrop-gradient"></div>
+</div>
+
+<!-- ── Main Detail ─────────────────────────────────────── -->
+<main class="detail-page">
+  <div class="detail-main">
+
+    <!-- Poster column -->
+    <div class="detail-poster-wrap">
+      <img id="detail-poster" class="detail-poster" src="" alt="">
+    </div>
+
+    <!-- Info column -->
+    <div class="detail-info">
+      <div class="detail-genres" id="detail-genres"></div>
+      <h1 class="detail-title" id="detail-title">Loading…</h1>
+      <div class="detail-meta" id="detail-meta"></div>
+      <p class="detail-overview" id="detail-overview"></p>
+
+      <!-- Actions -->
+      <div class="detail-actions">
+        <button class="btn-primary" id="detail-trailer-btn">▶ Watch Trailer</button>
+        <button class="detail-fav-btn" id="detail-fav-btn">♡ Add to Favorites</button>
+      </div>
+
+      <!-- OTT Availability -->
+      <div class="ott-section">
+        <h3>Where to Watch · India</h3>
+        <div class="ott-badges" id="ott-badges">
+          <div class="skeleton" style="height:38px;width:120px;border-radius:10px"></div>
+          <div class="skeleton" style="height:38px;width:120px;border-radius:10px"></div>
+        </div>
+      </div>
+
+      <!-- Cast -->
+      <div class="cast-section">
+        <h3>Cast</h3>
+        <div class="cast-track" id="cast-track">
+          <div class="skeleton" style="width:80px;height:80px;border-radius:50%"></div>
+          <div class="skeleton" style="width:80px;height:80px;border-radius:50%"></div>
+          <div class="skeleton" style="width:80px;height:80px;border-radius:50%"></div>
+          <div class="skeleton" style="width:80px;height:80px;border-radius:50%"></div>
+          <div class="skeleton" style="width:80px;height:80px;border-radius:50%"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Similar Movies -->
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">You Might Also Like</h2>
+      <a class="section-see-all" href="search.html">Explore →</a>
+    </div>
+    <div class="carousel-container">
+      <button class="carousel-btn prev" aria-label="Scroll left">‹</button>
+      <div class="carousel-track" id="similar-track"></div>
+      <button class="carousel-btn next" aria-label="Scroll right">›</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="footer-logo">Cine<span>match</span></div>
+  <p>Movie data from <a href="https://www.themoviedb.org" target="_blank" rel="noopener" style="color:var(--accent)">TMDB</a>.</p>
+</footer>
+
+<!-- ── Trailer Modal ───────────────────────────────────── -->
+<div class="modal-backdrop" id="trailer-modal">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="Close">✕</button>
+    <div class="modal-video">
+      <iframe id="trailer-frame" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/detail.js"></script>
+</body>
+</html>
