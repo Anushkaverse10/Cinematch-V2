@@ -1,6 +1,6 @@
 # 🎬 CineMatch – Movie Recommendation Web App
 
-CineMatch is a dynamic web application that helps users discover movies based on their preferences. It provides personalized suggestions, highlights underrated films, and shows where movies are available to watch.
+CineMatch is a dynamic web application that helps users discover movies based on their preferences. It provides personalized suggestions, highlights underrated films, overrated films, year of release, trailer etc. it also directs users to the available platform to watch the movie.
 
 ---
 # 🎬 Cinematch for Cinephiles
